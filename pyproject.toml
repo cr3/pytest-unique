@@ -1,49 +1,64 @@
 [tool.poetry]
-name = "changeme"
+name = "pytest-unique"
 version = "0.0.0"
-description = "changeme"
-authors = ["changeme"]
+description = "Pytest fixture to generate unique values."
+authors = ["Marc Tardif"]
 readme = "README.rst"
-repository = "https://github.com/cr3/changeme"
+repository = "https://github.com/cr3/pytest-unique"
 packages = [
-    { include = "changeme" },
+    { include = "pytest_unique" },
 ]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+attrs = "^23.1.0"
+pytest = "^7.4.2"
 
 [tool.poetry.group.test.dependencies]
-coverage = "^7.2.3"
-pytest = "^7.2.2"
+coverage = "^7.3.1"
+pyhamcrest = "^2.0.4"
 
 [tool.poetry.group.check]
 optional = true
 
 [tool.poetry.group.check.dependencies]
-ruff = "^0.0.265"
-black = "^23.3.0"
-pre-commit = "^3.3.1"
+ruff = "^0.0.289"
+black = "^23.9.1"
+pre-commit = "^3.4.0"
 
 [tool.poetry.group.docs]
 optional = true
 
 [tool.poetry.group.docs.dependencies]
-sphinx = "^6.1.3"
+sphinx = "^7.2.6"
 sphinxcontrib-log-cabinet = "^1.0.1"
-sphinx-rtd-theme = "^1.2.0"
+sphinx-rtd-theme = "^1.3.0"
+
+[tool.poetry.plugins."pytest11"]
+unique = "pytest_unique.fixtures"
+
+[tool.poetry.plugins."pytest_unique.unique"]
+bytes = "pytest_unique.unique:unique_bytes"
+digits = "pytest_unique.unique:unique_digits"
+email = "pytest_unique.unique:unique_email"
+float = "pytest_unique.unique:unique_float"
+integer = "pytest_unique.unique:unique_integer"
+password = "pytest_unique.unique:unique_password"
+text = "pytest_unique.unique:unique_text"
+uuid = "pytest_unique.unique:unique_uuid"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line-length = 120
+line-length = 80
 target-version = ["py39"]
 preview = true
 
 [tool.ruff]
 target-version = "py39"
-line-length = 120
+line-length = 80
 fix = true
 select = [
     # flake8-2020
@@ -99,7 +114,7 @@ addopts = [
     "--doctest-glob=*.rst",
 ]
 testpaths = [
-    "changeme",
+    "pytest_unique",
     "docs",
     "tests",
 ]
@@ -108,17 +123,17 @@ testpaths = [
 #   https://coverage.readthedocs.io/en/latest/config.html
 [tool.coverage.paths]
 source = [
-    "changeme",
+    "pytest_unique",
     "*/*/site-packages",
 ]
 
 [tool.coverage.report]
-fail_under = 90
+fail_under = 100
 show_missing = true
 
 [tool.coverage.run]
 branch = true
 parallel = true
 source = [
-    "changeme",
+    "pytest_unique",
 ]

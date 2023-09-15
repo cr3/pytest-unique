@@ -85,8 +85,8 @@ Setting up
 
     .. code-block:: text
 
-        > git clone https://github.com/cr3/changeme
-        > cd changeme
+        > git clone https://github.com/cr3/pytest_unique
+        > cd pytest_unique
 
 -   Create a virtualenv.
 
@@ -176,7 +176,7 @@ Update the apidoc when adding new modules:
 
 .. code-block:: text
 
-    > sphinx-apidoc --force --implicit-namespaces -o docs changeme
+    > sphinx-apidoc --force --implicit-namespaces -o docs pytest_unique
 
 Open ``build/html/index.html`` in your browser to view the docs.
 

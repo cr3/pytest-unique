@@ -3,15 +3,15 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import pkg_resources
+from importlib.metadata import distribution
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "changeme"
-copyright = "2023, changeme"  # noqa: A001
-author = "changeme"
-version = release = pkg_resources.get_distribution(project).version
+project = "pytest-unique"
+copyright = "2023, Marc Tardif"  # noqa: A001
+author = "Marc Tardif"
+version = release = distribution(project).version
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

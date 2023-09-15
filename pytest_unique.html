@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pytest_unique package &mdash; pytest-unique 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to contribute" href="contributing.html" />
+    <link rel="prev" title="pytest_unique" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pytest-unique
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pytest_unique</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pytest_unique package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pytest_unique.count">pytest_unique.count module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.count.file_count"><code class="docutils literal notranslate"><span class="pre">file_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.count.memory_count"><code class="docutils literal notranslate"><span class="pre">memory_count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pytest_unique.fixtures">pytest_unique.fixtures module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.fixtures.unique"><code class="docutils literal notranslate"><span class="pre">unique()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.fixtures.unique_in_file"><code class="docutils literal notranslate"><span class="pre">unique_in_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.fixtures.unique_in_memory"><code class="docutils literal notranslate"><span class="pre">unique_in_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pytest_unique.lock">pytest_unique.lock module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.AlreadyLockedError"><code class="docutils literal notranslate"><span class="pre">AlreadyLockedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.BaseLock"><code class="docutils literal notranslate"><span class="pre">BaseLock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.FileLock"><code class="docutils literal notranslate"><span class="pre">FileLock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.MemoryLock"><code class="docutils literal notranslate"><span class="pre">MemoryLock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.NotLockedError"><code class="docutils literal notranslate"><span class="pre">NotLockedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.NullLock"><code class="docutils literal notranslate"><span class="pre">NullLock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.lock.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pytest_unique.registry">pytest_unique.registry module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.registry.get_entry_points"><code class="docutils literal notranslate"><span class="pre">get_entry_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.registry.registry_add"><code class="docutils literal notranslate"><span class="pre">registry_add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.registry.registry_get"><code class="docutils literal notranslate"><span class="pre">registry_get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.registry.registry_load"><code class="docutils literal notranslate"><span class="pre">registry_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.registry.registry_remove"><code class="docutils literal notranslate"><span class="pre">registry_remove()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pytest_unique.unique">pytest_unique.unique module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.Unique"><code class="docutils literal notranslate"><span class="pre">Unique</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.count_factory"><code class="docutils literal notranslate"><span class="pre">count_factory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_bytes"><code class="docutils literal notranslate"><span class="pre">unique_bytes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_digits"><code class="docutils literal notranslate"><span class="pre">unique_digits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_email"><code class="docutils literal notranslate"><span class="pre">unique_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_float"><code class="docutils literal notranslate"><span class="pre">unique_float()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_integer"><code class="docutils literal notranslate"><span class="pre">unique_integer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_password"><code class="docutils literal notranslate"><span class="pre">unique_password()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_text"><code class="docutils literal notranslate"><span class="pre">unique_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest_unique.unique.unique_uuid"><code class="docutils literal notranslate"><span class="pre">unique_uuid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pytest_unique">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pytest-unique</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">pytest_unique</a></li>
+      <li class="breadcrumb-item active">pytest_unique package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pytest_unique.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pytest-unique-package">
+<h1>pytest_unique package<a class="headerlink" href="#pytest-unique-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pytest_unique.count">
+<span id="pytest-unique-count-module"></span><h2>pytest_unique.count module<a class="headerlink" href="#module-pytest_unique.count" title="Link to this heading"></a></h2>
+<p>Counters for iterating over evenly spaced values.</p>
+<p>Here is an example of using an in-memory counter:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">counter</span> <span class="o">=</span> <span class="n">memory_count</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.count.file_count">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.count.</span></span><span class="sig-name descname"><span class="pre">file_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.count.file_count" title="Link to this definition"></a></dt>
+<dd><p>In-file counter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>countfile</strong> – Path to count file for persistence.</p></li>
+<li><p><strong>start</strong> – Optional first count, defaults to 0.</p></li>
+<li><p><strong>step</strong> – Optional increment between counts, defaults to 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – On next() when the countfile doesn’t contain a count.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.count.memory_count">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.count.</span></span><span class="sig-name descname"><span class="pre">memory_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.count.memory_count" title="Link to this definition"></a></dt>
+<dd><p>In-memory counter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> – Optional first count, defaults to 0.</p></li>
+<li><p><strong>step</strong> – Optional increment between counts, defaults to 1.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytest_unique.fixtures">
+<span id="pytest-unique-fixtures-module"></span><h2>pytest_unique.fixtures module<a class="headerlink" href="#module-pytest_unique.fixtures" title="Link to this heading"></a></h2>
+<p>Unique fixture.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.fixtures.unique">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.fixtures.</span></span><span class="sig-name descname"><span class="pre">unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.fixtures.unique" title="Link to this definition"></a></dt>
+<dd><p>File backed unique.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.fixtures.unique_in_file">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.fixtures.</span></span><span class="sig-name descname"><span class="pre">unique_in_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.fixtures.unique_in_file" title="Link to this definition"></a></dt>
+<dd><p>File backed unique.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.fixtures.unique_in_memory">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.fixtures.</span></span><span class="sig-name descname"><span class="pre">unique_in_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.fixtures.unique_in_memory" title="Link to this definition"></a></dt>
+<dd><p>Memory backed unique.</p>
+</dd></dl>
+
+</section>
+<section id="module-pytest_unique.lock">
+<span id="pytest-unique-lock-module"></span><h2>pytest_unique.lock module<a class="headerlink" href="#module-pytest_unique.lock" title="Link to this heading"></a></h2>
+<p>Locks.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytest_unique.lock.AlreadyLockedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">AlreadyLockedError</span></span><a class="headerlink" href="#pytest_unique.lock.AlreadyLockedError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when a lock was already acquired.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytest_unique.lock.BaseLock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">BaseLock</span></span><a class="headerlink" href="#pytest_unique.lock.BaseLock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for locks.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pytest_unique.lock.BaseLock.is_locked">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_locked</span></span><a class="headerlink" href="#pytest_unique.lock.BaseLock.is_locked" title="Link to this definition"></a></dt>
+<dd><p>Return True if lock acquired, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.BaseLock.lock">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.BaseLock.lock" title="Link to this definition"></a></dt>
+<dd><p>Acquire the lock.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pytest_unique.lock.AlreadyLockedError" title="pytest_unique.lock.AlreadyLockedError"><strong>AlreadyLockedError</strong></a> – If the lock was already acquired.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.BaseLock.unlock">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.BaseLock.unlock" title="Link to this definition"></a></dt>
+<dd><p>Release the lock.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pytest_unique.lock.NotLockedError" title="pytest_unique.lock.NotLockedError"><strong>NotLockedError</strong></a> – If the lock was never acquired or already
+released.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytest_unique.lock.FileLock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">FileLock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lockfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lockfd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.FileLock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytest_unique.lock.BaseLock" title="pytest_unique.lock.BaseLock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLock</span></code></a></p>
+<p>Advisory file locking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lockfile</strong> – Path to the lock file.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="pytest_unique.lock.FileLock.is_locked">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_locked</span></span><a class="headerlink" href="#pytest_unique.lock.FileLock.is_locked" title="Link to this definition"></a></dt>
+<dd><p>Check if the file is locked, based on the file descriptor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.FileLock.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.FileLock.lock" title="Link to this definition"></a></dt>
+<dd><p>See <cite>BaseLock.lock</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.FileLock.unlock">
+<span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.FileLock.unlock" title="Link to this definition"></a></dt>
+<dd><p>See <cite>BaseLock.unlock</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytest_unique.lock.MemoryLock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">MemoryLock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_locked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.MemoryLock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytest_unique.lock.BaseLock" title="pytest_unique.lock.BaseLock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLock</span></code></a></p>
+<p>In-memory locking.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pytest_unique.lock.MemoryLock.is_locked">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_locked</span></span><a class="headerlink" href="#pytest_unique.lock.MemoryLock.is_locked" title="Link to this definition"></a></dt>
+<dd><p>Accessor for read-only private field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.MemoryLock.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.MemoryLock.lock" title="Link to this definition"></a></dt>
+<dd><p>See <cite>BaseLock.lock</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.MemoryLock.unlock">
+<span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.MemoryLock.unlock" title="Link to this definition"></a></dt>
+<dd><p>See <cite>BaseLock.unlock</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pytest_unique.lock.NotLockedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">NotLockedError</span></span><a class="headerlink" href="#pytest_unique.lock.NotLockedError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised when the lock was never acquired or already released.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytest_unique.lock.NullLock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">NullLock</span></span><a class="headerlink" href="#pytest_unique.lock.NullLock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pytest_unique.lock.BaseLock" title="pytest_unique.lock.BaseLock"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseLock</span></code></a></p>
+<p>Null pattern implementation.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="pytest_unique.lock.NullLock.is_locked">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_locked</span></span><a class="headerlink" href="#pytest_unique.lock.NullLock.is_locked" title="Link to this definition"></a></dt>
+<dd><p>Return False.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.NullLock.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.NullLock.lock" title="Link to this definition"></a></dt>
+<dd><p>Do nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.lock.NullLock.unlock">
+<span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.NullLock.unlock" title="Link to this definition"></a></dt>
+<dd><p>Do nothing.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.lock.lock">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.lock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.lock.unlock">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.lock.</span></span><span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.lock.unlock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pytest_unique.registry">
+<span id="pytest-unique-registry-module"></span><h2>pytest_unique.registry module<a class="headerlink" href="#module-pytest_unique.registry" title="Link to this heading"></a></h2>
+<p>Entry points based registry management.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.registry.get_entry_points">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.registry.</span></span><span class="sig-name descname"><span class="pre">get_entry_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.registry.get_entry_points" title="Link to this definition"></a></dt>
+<dd><p>Get the list of pytest_unique entry points.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.registry.registry_add">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.registry.</span></span><span class="sig-name descname"><span class="pre">registry_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.registry.registry_add" title="Link to this definition"></a></dt>
+<dd><p>Add an entry to a registry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – Group of the entry.</p></li>
+<li><p><strong>name</strong> – Name of the entry.</p></li>
+<li><p><strong>entry</strong> – Entry to add.</p></li>
+<li><p><strong>registry</strong> – Optional registry to update.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A registry with the entry.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.registry.registry_get">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.registry.</span></span><span class="sig-name descname"><span class="pre">registry_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.registry.registry_get" title="Link to this definition"></a></dt>
+<dd><p>Get an entry from a registry.</p>
+<p>If the registry is not defined or the group is not in the registry,
+the registry is loaded again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – Group of the entry.</p></li>
+<li><p><strong>name</strong> – Name of the entry.</p></li>
+<li><p><strong>registry</strong> – Optional registry to get from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.registry.registry_load">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.registry.</span></span><span class="sig-name descname"><span class="pre">registry_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.registry.registry_load" title="Link to this definition"></a></dt>
+<dd><p>Find all installed entry points.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.registry.registry_remove">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.registry.</span></span><span class="sig-name descname"><span class="pre">registry_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.registry.registry_remove" title="Link to this definition"></a></dt>
+<dd><p>Remove an entry from a registry.</p>
+<p>If the entry doesn’t exist, return silently.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – Group of the entry.</p></li>
+<li><p><strong>name</strong> – Name of the entry.</p></li>
+<li><p><strong>registry</strong> – Optional registry to update.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pytest_unique.unique">
+<span id="pytest-unique-unique-module"></span><h2>pytest_unique.unique module<a class="headerlink" href="#module-pytest_unique.unique" title="Link to this heading"></a></h2>
+<p>Unique data generation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pytest_unique.unique.Unique">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">Unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_Nothing.NOTHING</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_Nothing.NOTHING</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.Unique" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generate data using plugins.</p>
+<p>Plugins are read from the <cite>pytest_unique.unique</cite> entrypoints.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytest_unique.unique.Unique.count">
+<span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#pytest_unique.unique.Unique.count" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pytest_unique.unique.Unique.get_plugin">
+<span class="sig-name descname"><span class="pre">get_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.Unique.get_plugin" title="Link to this definition"></a></dt>
+<dd><p>Find plugin in the registry.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pytest_unique.unique.Unique.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><a class="headerlink" href="#pytest_unique.unique.Unique.registry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.count_factory">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">count_factory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.count_factory" title="Link to this definition"></a></dt>
+<dd><p>Create a counter that increases with each unique call.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_bytes">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_bytes" title="Link to this definition"></a></dt>
+<dd><p>Return bytes unique to this factory instance.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_digits">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_digits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_digits" title="Link to this definition"></a></dt>
+<dd><p>Return digits unique to this factory instance.</p>
+<p>Takes the same arguments as <cite>integer</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_email">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_email" title="Link to this definition"></a></dt>
+<dd><p>Return an email unique to this factory instance.</p>
+<p>Takes the same arguments as <cite>text</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_float">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_float" title="Link to this definition"></a></dt>
+<dd><p>Return a float unique to this factory instance.</p>
+<p>The floating point number by making an integer for the whole
+part and another integer for the decimal part.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_integer">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_integer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_integer" title="Link to this definition"></a></dt>
+<dd><p>Return an integer unique to this factory instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base</strong> – Optional base to add to the integer.</p></li>
+<li><p><strong>mod</strong> – Optional modulo to apply on the integer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_password">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowercase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uppercase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">punctuation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_password" title="Link to this definition"></a></dt>
+<dd><p>Return a password unique to this factory instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lowercase</strong> – Number of lowercase letters, defaults to 4.</p></li>
+<li><p><strong>uppercase</strong> – Number of uppercase letters, defaults to 2.</p></li>
+<li><p><strong>digits</strong> – Number of digits, defaults to 1.</p></li>
+<li><p><strong>punctuation</strong> – Number of punctuation characters, defaults to 1.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_text">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_text" title="Link to this definition"></a></dt>
+<dd><p>Return text unique to this factory instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> – Used as a prefix for the unique string, defaults
+to a generated string from the stack frame.</p></li>
+<li><p><strong>suffix</strong> – Optional suffix for the unique string.</p></li>
+<li><p><strong>separator</strong> – Separator between parts of the string,
+defaults to ‘-‘.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pytest_unique.unique.unique_uuid">
+<span class="sig-prename descclassname"><span class="pre">pytest_unique.unique.</span></span><span class="sig-name descname"><span class="pre">unique_uuid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pytest_unique.unique.unique_uuid" title="Link to this definition"></a></dt>
+<dd><p>Return a UUID unique to this factory instance.</p>
+<p>This method provides a more predictable alternative to <cite>uuid4()</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="module-pytest_unique">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pytest_unique" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="pytest_unique" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Marc Tardif.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

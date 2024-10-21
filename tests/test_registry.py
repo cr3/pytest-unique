@@ -1,4 +1,5 @@
 """Unit tests for the registry module."""
+
 from importlib.metadata import EntryPoint
 from unittest.mock import patch
 
@@ -19,13 +20,11 @@ def test_registry_load():
         pytest_unique.registry,
         "get_entry_points",
     ) as mock_entry_points:
-        mock_entry_points.return_value = iter(
-            [
-                EntryPoint(
-                    "registry", "pytest_unique.registry", "pytest_unique.group"
-                ),
-            ]
-        )
+        mock_entry_points.return_value = iter([
+            EntryPoint(
+                "registry", "pytest_unique.registry", "pytest_unique.group"
+            ),
+        ])
         registry = registry_load("group")
         assert "registry" in registry["group"]
         assert registry["group"]["registry"] == pytest_unique.registry
@@ -37,13 +36,11 @@ def test_registry_load_ignore():
         pytest_unique.registry,
         "get_entry_points",
     ) as mock_entry_points:
-        mock_entry_points.return_value = iter(
-            [
-                EntryPoint(
-                    "error", "pytest_unique.registry", "pytest_unique.group"
-                ),
-            ]
-        )
+        mock_entry_points.return_value = iter([
+            EntryPoint(
+                "error", "pytest_unique.registry", "pytest_unique.group"
+            ),
+        ])
         registry = registry_load("group")
         assert "test" not in registry
 

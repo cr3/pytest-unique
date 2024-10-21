@@ -1,4 +1,5 @@
 """Unique data generation."""
+
 import string
 import sys
 import time
@@ -8,7 +9,7 @@ from pathlib import PurePath
 from random import sample
 from uuid import UUID
 
-from attrs import define, field
+from attr import define, field
 
 from pytest_unique.count import memory_count
 from pytest_unique.registry import registry_load
@@ -136,14 +137,12 @@ def unique_text(unique, prefix=None, suffix=None, separator="-"):
             .replace("_", separator)
             .replace(".", separator)
         )
-        prefix = separator.join(
-            [
-                "unique",
-                "from",
-                source,
-                f"line{frame.f_lineno}",
-            ]
-        )
+        prefix = separator.join([
+            "unique",
+            "from",
+            source,
+            f"line{frame.f_lineno}",
+        ])
 
     text = separator.join([prefix, str(unique("integer"))])
     if suffix is not None:

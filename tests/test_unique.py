@@ -1,4 +1,5 @@
 """Unit tests for the unique module."""
+
 import string
 from uuid import UUID
 

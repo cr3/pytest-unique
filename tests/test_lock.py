@@ -1,4 +1,5 @@
 """Unit tests for the lock module."""
+
 import pytest
 
 from pytest_unique.lock import (

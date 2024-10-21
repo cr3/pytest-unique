@@ -1,4 +1,5 @@
 """Locks."""
+
 import os
 from abc import ABCMeta, abstractmethod
 
@@ -21,7 +22,7 @@ except ImportError:  # pragma: no cover
         msvcrt.locking(fd, msvcrt.LK_UNLCK, 0)
 
 
-from attrs import define, field
+from attr import define, field
 
 
 class AlreadyLockedError(Exception):

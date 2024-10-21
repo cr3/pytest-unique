@@ -1,4 +1,5 @@
 """Unit tests for the count module."""
+
 import pytest
 
 from pytest_unique.count import file_count, memory_count

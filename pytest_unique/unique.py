@@ -117,7 +117,7 @@ def unique_password(unique, lowercase=4, uppercase=2, digits=1, punctuation=1):
     return "".join(sample(chars, lowercase + uppercase + digits + punctuation))
 
 
-def unique_text(unique, prefix=None, suffix=None, separator="-"):
+def unique_text(unique, prefix=None, suffix=None, separator="-", limit=None):
     """Return text unique to this factory instance.
 
     :param prefix: Used as a prefix for the unique string, defaults
@@ -125,6 +125,7 @@ def unique_text(unique, prefix=None, suffix=None, separator="-"):
     :param suffix: Optional suffix for the unique string.
     :param separator: Separator between parts of the string,
         defaults to '-'.
+    :param limit: Optional limit for the unique string.
     """
     if prefix is None:
         frame = sys._getframe(2)
@@ -147,6 +148,10 @@ def unique_text(unique, prefix=None, suffix=None, separator="-"):
     text = separator.join([prefix, str(unique("integer"))])
     if suffix is not None:
         text = separator.join([text, suffix])
+
+    if limit is not None:
+        # Truncate from the end.
+        text = text[-limit:]
 
     return text
 

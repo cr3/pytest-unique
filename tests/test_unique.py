@@ -156,6 +156,21 @@ def test_unique_text_separator(unique):
     assert "*" in text
 
 
+@pytest.mark.parametrize(
+    "limit",
+    [
+        1,
+        2,
+        4,
+        8,
+    ],
+)
+def test_unique_text_fields(limit, unique):
+    """Unique text with a limit should truncate the text."""
+    text = unique_text(unique, limit=limit)
+    assert len(text) == limit
+
+
 def test_unique_uuid_fields(unique):
     """A unique UUID should have all fields set to 0 except the last one."""
     uuid = unique_uuid(unique)

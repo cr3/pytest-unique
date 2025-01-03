@@ -98,8 +98,8 @@ def test_registry_get_error():
 @pytest.mark.parametrize(
     "group,name",
     [
-        ("unique", "bytes"),
-        ("unique", "integer"),
+        ("pytest_unique", "bytes"),
+        ("pytest_unique", "integer"),
     ],
 )
 def test_registry_get_setup(group, name):

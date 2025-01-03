@@ -25,7 +25,7 @@ from pytest_unique.unique import (
 
 def test_unique_get_plugin_with_match():
     """Getting a plugin with a match should return a plugin."""
-    unique = Unique(registry={"unique": {"test": lambda u: "test"}})
+    unique = Unique(registry={"pytest_unique": {"test": lambda u: "test"}})
     plugin = unique.get_plugin("test")
     assert plugin() == "test"
 
@@ -33,7 +33,7 @@ def test_unique_get_plugin_with_match():
 def test_unique_get_plugin_without_match():
     """Getting a plugin without a match in the registry should raise."""
     with pytest.raises(KeyError):
-        Unique(registry={"unique": {}}).get_plugin("test")
+        Unique(registry={"pytest_unique": {}}).get_plugin("test")
 
 
 def test_unique_get_plugin_without_plugins():
@@ -187,5 +187,5 @@ def test_unique_uuid_integer(unique):
 
 def test_unique_name_argument():
     """A unique plugin should be able to pass a `name` argument."""
-    unique = Unique(registry={"unique": {"test": lambda u, name: name}})
+    unique = Unique(registry={"pytest_unique": {"test": lambda u, name: name}})
     assert unique("test", name="test") == "test"

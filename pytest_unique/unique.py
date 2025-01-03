@@ -25,11 +25,11 @@ def count_factory():
 class Unique:
     """Generate data using plugins.
 
-    Plugins are read from the `pytest_unique.unique` entrypoints.
+    Plugins are read from the `pytest_unique` entrypoints.
     """
 
     count = field(factory=count_factory)
-    registry = field(factory=partial(registry_load, "unique"))
+    registry = field(factory=partial(registry_load, "pytest_unique"))
 
     def __call__(self, _name, *args, **kwargs):
         """Invoke the unique plugin."""
@@ -39,7 +39,7 @@ class Unique:
     def get_plugin(self, _name, *args, **kwargs):
         """Find plugin in the registry."""
         try:
-            plugins = self.registry["unique"]
+            plugins = self.registry["pytest_unique"]
         except KeyError:
             raise KeyError("No plugins found") from None
 

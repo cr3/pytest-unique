@@ -5,6 +5,7 @@ Released 2025-01-03
 
 -   Bump attrs to 24.3.0
 -   Replace datetime.utcnow() with datetime.now(UTC)
+-   Repace pytest_unique.unique entry point with pytest_unique.
 
 Version 0.1.2
 -------------

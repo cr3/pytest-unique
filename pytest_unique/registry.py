@@ -9,19 +9,18 @@ def get_entry_points(group):
     try:
         return entry_points().select(group=group)
     except AttributeError:
-        # Backward compatibility with Python 3.8.
+        # Backward compatibility with Python 3.9.
         return entry_points().get(group, [])
 
 
-def registry_load(name, registry=None):
+def registry_load(group, registry=None):
     """Find all installed entry points."""
     if registry is None:
         registry = {}
 
-    group = f"pytest_unique.{name}"
     for entry_point in get_entry_points(group):
         entry = entry_point.load()
-        registry_add(name, entry_point.name, entry, registry)
+        registry_add(group, entry_point.name, entry, registry)
 
     return registry
 

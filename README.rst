@@ -68,7 +68,7 @@ Then, add it to the ``pyproject.toml`` file of your project:
 
 .. code-block:: text
 
-  [tool.poetry.plugins."pytest_unique.unique"]
+  [tool.poetry.plugins."pytest_unique"]
   datetime = "your_project.unique:unique_datetime"
 
 You can then use the plugin like all other plugins:

@@ -3,7 +3,7 @@
 import string
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from functools import partial
 from pathlib import PurePath
 from random import sample
@@ -17,7 +17,7 @@ from pytest_unique.registry import registry_load
 
 def count_factory():
     """Create a counter that increases with each unique call."""
-    start = int(time.mktime(datetime.utcnow().timetuple()))
+    start = int(time.mktime(datetime.now(timezone.utc).timetuple()))
     return memory_count(start)
 
 

@@ -4,6 +4,7 @@ Version 0.1.3
 Released 2025-01-03
 
 -   Bump attrs to 24.3.0
+-   Replace datetime.utcnow() with datetime.now(UTC)
 
 Version 0.1.2
 -------------

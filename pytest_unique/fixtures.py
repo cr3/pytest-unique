@@ -1,7 +1,7 @@
 """Unique fixture."""
 
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
@@ -24,7 +24,7 @@ def unique_in_file(request):
     # Use the current timestamp for the count start because the count can
     # be used to create artifacts in databases across test environments,
     # like users in api-stg.webarmor.io.
-    start = int(time.mktime(datetime.utcnow().timetuple()))
+    start = int(time.mktime(datetime.now(timezone.utc).timetuple()))
     count = file_count(countfile, start)
     return Unique(count)
 

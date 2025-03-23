@@ -1,3 +1,10 @@
+Version 0.1.4
+-------------
+
+Released 2025-03-23
+
+-   Bump attrs to 25.3.0
+
 Version 0.1.3
 -------------
 

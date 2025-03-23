@@ -65,7 +65,7 @@ class BaseLock(metaclass=ABCMeta):
         return False
 
 
-@define()
+@define
 class FileLock(BaseLock):
     """Advisory file locking.
 
@@ -98,7 +98,7 @@ class FileLock(BaseLock):
         self._lockfd = None
 
 
-@define()
+@define
 class MemoryLock(BaseLock):
     """In-memory locking."""
 
@@ -124,7 +124,7 @@ class MemoryLock(BaseLock):
         self._is_locked = False
 
 
-@define()
+@define
 class NullLock(BaseLock):
     """Null pattern implementation."""
 

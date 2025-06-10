@@ -1,3 +1,10 @@
+Version 0.1.5
+-------------
+
+Released 2025-06-10
+
+-   Bump pytest to 8.0.0
+
 Version 0.1.4
 -------------
 

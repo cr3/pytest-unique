@@ -68,9 +68,12 @@ def unique_email(unique, *args, **kwargs):
     """Return an email unique to this factory instance.
 
     Takes the same arguments as `text`.
+
+    :param domain: Optional domain, defaults to `example.com`.
     """
+    domain = kwargs.pop("domain", "example.com")
     username = unique("text", *args, **kwargs)
-    return f"{username}@example.com"
+    return f"{username}@{domain}"
 
 
 def unique_float(unique):

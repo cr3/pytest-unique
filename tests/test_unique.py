@@ -113,6 +113,12 @@ def test_unique_email_suffix(unique):
     assert email.endswith("with-my-suffix@example.com")
 
 
+def test_unique_email_domain(unique):
+    """A unique email with a domain should use that domain."""
+    email = unique_email(unique, domain="test.com")
+    assert email.endswith("@test.com")
+
+
 def test_unique_integer_args(unique):
     """A unique integer with bits should be within that number of bits."""
     base = 1

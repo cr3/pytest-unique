@@ -1,3 +1,10 @@
+Version 0.1.6
+-------------
+
+Released 2025-11-03
+
+-   Add domain option to unique email.
+
 Version 0.1.5
 -------------
 
